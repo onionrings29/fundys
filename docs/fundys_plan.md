@@ -16,29 +16,39 @@ Just fill in your answers under each question. Take your time!
 ### 1.1 What overall vibe do you want for the website? (Pick one)
 
 - [ ] a) Clean & Minimal — lots of white space, simple layout
-- [ ] b) Warm & Cozy — earthy tones, homey bakery feel
+- [x] b) Warm & Cozy — earthy tones, homey bakery/cafe feel
 - [ ] c) Fun & Colorful — bright colors, playful and cheerful
 - [ ] d) Elegant & Premium — dark/gold tones, luxurious feel
-- [ ] e) Other: _______________
-- [ ] f) Ikaw na bahala! — I trust your judgment, surprise me
+- [ ] e) Other: \______________\_
+- [x] f) Ikaw na bahala! — I trust your judgment, surprise me** (ALSO THIS!!)**
 
-### 1.2 Do you have brand colors you already use? (e.g., for your logo, packaging, Shopee store)
+## 1.1a Inspo websites:
 
-> Your answer: _______________
+(Kahit ilan po)
+- <https://www.stonewallkitchen.com/?srsltid=AfmBOoofAw9Arun8HU-9zol5VtQUU00K8MauRH1xCABREEbjW1GQq7gT>
+- <https://beerenberg.com.au/?srsltid=AfmBOoqu6-Ct98u0UOW28Q9auzuLFH5jD142lKEywrV2DnfCUHzo2PSr>
+- <https://www.wozzkitchencreations.com/?srsltid=AfmBOorPu_ae_DsW7sls_IOCAV7t0-Ztvi5oW6qYHNIHuoQU_jQ9jHcG>
+- 
+- 
+- 
 
-### 1.3 Do you have a logo? If yes, can upload the file po don sa contents folder?
+### 1.2 Do you have brand colors you already use? (e.g., for your logo, packaging, Shopee store) pag meron po kayo colour palette upload nyo po don sa contents folder :D
 
-- [ ] Yes, I have a logo ready
+> Your answer: YES <https://drive.google.com/drive/folders/1kYBCFxKFICj6iHvXOiG8ONWsbZFOjWKl>
+
+### 1.3 Do you have a logo? If yes, upload the file po don sa contents folder.
+
+- [ x] Yes, I have a logo ready
 - [ ] I have one but it needs cleanup
 - [ ] No, I don't have one yet
 - [ ] Ikaw na bahala! — just use whatever works
 
 ### 1.4 What fonts/typography style do you prefer?
 
-- [ ] a) Handwritten/Script — casual, personal feel
+- [x] a) Handwritten/Script — casual, personal feel
 - [ ] b) Serif — classic, elegant (think: Times New Roman style)
 - [ ] c) Sans-serif — modern, clean (think: Arial/Helvetica style)
-- [ ] d) Mix of script + clean — script for headings, clean for body text
+- [x] d) Mix of script + clean — script for headings, clean for body text
 - [ ] e) Ikaw na bahala! — just make it look good
 
 ---
@@ -53,8 +63,9 @@ Just fill in your answers under each question. Take your time!
 - [ ] **Gallery** — photo/video gallery of your products and behind-the-scenes
 - [ ] **Contact Us** — contact info, location/address, social media links
 - [ ] **FAQs** — frequently asked questions (e.g., "Do you deliver?", "How to order?")
+- [ ] **Blog** - katulad nung sa pan de manila at nung sa website ko po. <https://saulutions.ca/blog> (open nyo po sa web, may bugs pa sa mobile)
 - [ ] **Testimonials / Reviews** — customer feedback and reviews
-- [ ] Other pages you want: _______________
+- [ ] Other pages you want: \______________\_
 - [ ] **Ikaw na bahala!** — just pick the best pages for a bakery website
 
 ### 2.2 What should visitors see FIRST when they open your website? (Pick one)
@@ -63,7 +74,7 @@ Just fill in your answers under each question. Take your time!
 - [ ] b) A short welcome message with a slideshow of photos
 - [ ] c) Your logo front and center with navigation to all sections
 - [ ] d) Featured/best-seller products right away
-- [ ] e) Other: _______________
+- [ ] e) Other: \______________\_
 - [ ] f) Ikaw na bahala! — just make it look nice
 
 ---
@@ -82,8 +93,8 @@ Just fill in your answers under each question. Take your time!
 
 ### 3.2 Anything else you'd like on the website that wasn't mentioned above?
 
-> Your answer: _______________
+> Your answer: \______________\_
 
 ---
 
-*Ito lang po muna need ko for now! Pero if di po kayo busy, meron pong isa pang file don sa docs folder (`fundys_content.md`) :))
+Ito lang po muna need ko for now! Pero if di po kayo busy, meron pong isa pang file don sa docs/phase2 folder (`fundys_content.md`) :))
