@@ -370,29 +370,34 @@ export default function Home() {
           </div>
         </ScrollReveal>
 
-        <div className="mx-auto max-w-6xl">
-          <div className="grid grid-cols-2 gap-2 sm:grid-cols-5 sm:gap-3">
-            {lifestylePhotos.map((photo, i) => (
-              <ScrollReveal
-                key={i}
-                animation="reveal-scale"
-                delay={i * 0.07}
-                className={i === 4 ? "col-span-2 sm:col-span-1" : ""}
-              >
+        <div className="mx-auto max-w-4xl">
+          {/* Top row — 3 photos */}
+          <div className="grid grid-cols-2 gap-2 sm:gap-3 lg:grid-cols-3">
+            {lifestylePhotos.slice(0, 3).map((photo, i) => (
+              <ScrollReveal key={i} animation="reveal-scale" delay={i * 0.08}>
                 <LightboxImage src={photo.src} alt={photo.caption} width={500} height={500}>
-                  <div className={`group overflow-hidden rounded-xl ${i === 4 ? "mx-auto w-1/2 sm:w-full" : ""}`}>
+                  <div className="group overflow-hidden rounded-xl">
                     <div className="aspect-square overflow-hidden bg-card-bg-tinted">
-                      <Image
-                        src={photo.src}
-                        alt={photo.caption}
-                        width={500}
-                        height={500}
-                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      />
+                      <Image src={photo.src} alt={photo.caption} width={500} height={500}
+                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
                     </div>
-                    <p className="mt-1.5 text-center text-[10px] tracking-wide text-charcoal-light">
-                      {photo.caption}
-                    </p>
+                    <p className="mt-1.5 text-center text-[10px] tracking-wide text-charcoal-light">{photo.caption}</p>
+                  </div>
+                </LightboxImage>
+              </ScrollReveal>
+            ))}
+          </div>
+          {/* Bottom row — 2 photos */}
+          <div className="mt-2 grid grid-cols-2 gap-2 sm:mt-3 sm:gap-3">
+            {lifestylePhotos.slice(3).map((photo, i) => (
+              <ScrollReveal key={i} animation="reveal-scale" delay={(i + 3) * 0.08}>
+                <LightboxImage src={photo.src} alt={photo.caption} width={500} height={500}>
+                  <div className="group overflow-hidden rounded-xl">
+                    <div className="aspect-square overflow-hidden bg-card-bg-tinted">
+                      <Image src={photo.src} alt={photo.caption} width={500} height={500}
+                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                    </div>
+                    <p className="mt-1.5 text-center text-[10px] tracking-wide text-charcoal-light">{photo.caption}</p>
                   </div>
                 </LightboxImage>
               </ScrollReveal>
@@ -417,18 +422,29 @@ export default function Home() {
           </div>
         </ScrollReveal>
 
-        <div className="mx-auto max-w-6xl">
+        <div className="mx-auto max-w-5xl">
+          {/* Top row — 5 posts */}
           <div className="grid grid-cols-3 gap-2 sm:grid-cols-5 sm:gap-3">
-            {socialPosts.map((post, i) => (
-              <ScrollReveal key={i} animation="reveal-scale" delay={i * 0.06}>
+            {socialPosts.slice(0, 5).map((post, i) => (
+              <ScrollReveal key={i} animation="reveal-scale" delay={i * 0.07}>
                 <div className="overflow-hidden rounded-xl shadow-sm">
-                  <Image
-                    src={post.src}
-                    alt={post.alt}
-                    width={400}
-                    height={700}
-                    className="h-auto w-full"
-                  />
+                  <div className="aspect-[3/4] overflow-hidden">
+                    <Image src={post.src} alt={post.alt} width={400} height={533}
+                      className="h-full w-full object-cover object-top" />
+                  </div>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+          {/* Bottom row — 4 posts */}
+          <div className="mt-2 grid grid-cols-2 gap-2 sm:mt-3 sm:grid-cols-4 sm:gap-3">
+            {socialPosts.slice(5).map((post, i) => (
+              <ScrollReveal key={i} animation="reveal-scale" delay={(i + 5) * 0.07}>
+                <div className="overflow-hidden rounded-xl shadow-sm">
+                  <div className="aspect-[3/4] overflow-hidden">
+                    <Image src={post.src} alt={post.alt} width={400} height={533}
+                      className="h-full w-full object-cover object-top" />
+                  </div>
                 </div>
               </ScrollReveal>
             ))}
