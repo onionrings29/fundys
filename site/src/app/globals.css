@@ -19,17 +19,17 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --cream: #16171D;
-    --cream-dark: #1C1D26;
-    --charcoal: #CDD1DE;
-    --charcoal-light: #8892A4;
+    --cream: #111110;
+    --cream-dark: #181614;
+    --charcoal: #EDE8E1;
+    --charcoal-light: #9E9890;
     --brand-red: #A82424;
     --brand-red-hover: #BF2E2E;
     --brand-red-light: #B83030;
-    --card-bg: #1E1F29;
-    --card-bg-tinted: #23243A;
-    --testimonial-bg: rgba(22,23,29,0.90);
-    --testimonial-section-tint: rgba(14,15,20,0.6);
+    --card-bg: #1C1A18;
+    --card-bg-tinted: #211F1C;
+    --testimonial-bg: rgba(28,26,24,0.90);
+    --testimonial-section-tint: rgba(17,16,14,0.6);
   }
 
   /* Footer sits on a red background — keep cream variables light so text stays visible */
