@@ -12,22 +12,26 @@ const lifestylePhotos = [
   { src: "/images/lifestyle/basil-pesto-bowl.jpg", caption: "Basil Pesto de Bola" },
 ];
 
-// 3-column layout: short sides (landscape Mac screenshots), tall middle (portrait phone shots)
+// Desktop: 1-2-3-2-1 across 5 columns, columns vertically centred
 const socialColumns = [
   [
-    { src: "/images/social/nugsbea.jpg", alt: "Threads post by @nugsbea" },
-    { src: "/images/social/ughsam.jpg", alt: "Instagram story by @ughsam" },
+    { src: "/images/social/instagram-story.jpg", alt: "Instagram story — pangatlo ko na tong jar" },
   ],
   [
     { src: "/images/social/danicekaye.jpg", alt: "Threads post by @danicekaye" },
     { src: "/images/social/hazelnutte.jpg", alt: "Threads post by @hazelnutte" },
-    { src: "/images/social/riesbanzil.jpg", alt: "Threads post by @riesbanzil" },
-    { src: "/images/social/instagram-story.jpg", alt: "Instagram story — pangatlo ko na tong jar" },
-    { src: "/images/social/people.jpg", alt: "Customers enjoying Fundy's at an event" },
   ],
   [
+    { src: "/images/social/nugsbea.jpg", alt: "Threads post by @nugsbea" },
     { src: "/images/social/bbear_sunshine.jpg", alt: "Threads post by @bbear_sunshine" },
     { src: "/images/social/tsimis.jpg", alt: "Threads post — di sia tsimis" },
+  ],
+  [
+    { src: "/images/social/riesbanzil.jpg", alt: "Threads post by @riesbanzil" },
+    { src: "/images/social/ughsam.jpg", alt: "Instagram story by @ughsam" },
+  ],
+  [
+    { src: "/images/social/people.jpg", alt: "Customers enjoying Fundy's at an event" },
   ],
 ];
 
@@ -429,9 +433,9 @@ export default function Home() {
           </div>
         </ScrollReveal>
 
-        <div className="mx-auto max-w-4xl">
-          {/* sm+: 3 explicit flex columns, vertically centred so middle is tallest */}
-          <div className="hidden sm:flex sm:items-center sm:gap-3">
+        <div className="mx-auto max-w-6xl">
+          {/* lg+: 5 columns, 1-2-3-2-1, vertically centred */}
+          <div className="hidden lg:flex lg:items-center lg:gap-2">
             {socialColumns.map((col, ci) => (
                 <div key={ci} className="flex flex-1 flex-col gap-3">
                   {col.map((post, pi) => (
@@ -450,8 +454,8 @@ export default function Home() {
                 </div>
             ))}
           </div>
-          {/* Mobile: 2-col CSS masonry */}
-          <div className="sm:hidden [columns:2] [column-gap:0.75rem]">
+          {/* Mobile/tablet: 2-col CSS masonry */}
+          <div className="lg:hidden [columns:2] sm:[columns:3] [column-gap:0.75rem]">
             {socialColumns.flat().map((post, i) => (
               <ScrollReveal key={i} animation="reveal-scale" delay={Math.min(i * 0.06, 0.3)} className="mb-3 inline-block w-full break-inside-avoid">
                 <div className="overflow-hidden rounded-xl shadow-sm">
