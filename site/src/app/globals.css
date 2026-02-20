@@ -10,6 +10,24 @@
   --accent-light: #D4B898;
   --charcoal: #3D3D3D;
   --charcoal-light: #5A5A5A;
+  /* Card and surface colours for light mode */
+  --card-bg: #FFFFFF;
+  --card-bg-tinted: #F5EDE0;
+  --testimonial-bg: rgba(255,255,255,0.75);
+  --testimonial-section-tint: rgba(245,237,224,0.5);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --cream: #1C1510;
+    --cream-dark: #251C15;
+    --charcoal: #EAD9C8;
+    --charcoal-light: #B8A898;
+    --card-bg: #2A1F18;
+    --card-bg-tinted: #2F2218;
+    --testimonial-bg: rgba(42,31,24,0.85);
+    --testimonial-section-tint: rgba(30,22,16,0.6);
+  }
 }
 
 @theme inline {
@@ -22,6 +40,8 @@
   --color-accent-light: var(--accent-light);
   --color-charcoal: var(--charcoal);
   --color-charcoal-light: var(--charcoal-light);
+  --color-card-bg: var(--card-bg);
+  --color-card-bg-tinted: var(--card-bg-tinted);
   --font-display: var(--font-pacifico);
   --font-body: var(--font-lora);
 }

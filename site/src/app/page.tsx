@@ -180,7 +180,7 @@ export default function Home() {
                 {i > 0 && (
                   <div className="mx-auto mb-10 h-[1px] w-16 bg-accent/30 md:hidden" />
                 )}
-                <div className="group rounded-none bg-transparent p-0 pb-10 text-center shadow-none md:product-card md:rounded-xl md:bg-white md:p-10 md:pb-10 md:shadow-[0_2px_24px_rgba(0,0,0,0.06)]">
+                <div className="group rounded-none bg-transparent p-0 pb-10 text-center shadow-none md:product-card md:rounded-xl md:bg-card-bg md:p-10 md:pb-10 md:shadow-[0_2px_24px_rgba(0,0,0,0.06)]">
                   {/* Product image */}
                   <LightboxImage
                     src={product.image}
@@ -191,7 +191,7 @@ export default function Home() {
                   >
                     {/* Shadow wrapper separate from overflow-hidden to render on all browsers */}
                     <div className="rounded-xl shadow-[0_6px_28px_rgba(0,0,0,0.10)] transition-transform duration-500 group-hover:scale-[1.02]">
-                      <div className="aspect-square w-full overflow-hidden rounded-xl bg-[#F5EDE0]">
+                      <div className="aspect-square w-full overflow-hidden rounded-xl bg-card-bg-tinted">
                         <Image
                           src={product.image}
                           alt={product.name}
@@ -253,7 +253,7 @@ export default function Home() {
         <ScrollReveal className="mt-6 sm:mt-16 md:mt-20" delay={0.1}>
           <div className="mx-auto max-w-4xl">
             <div className="mx-auto mb-10 h-[1px] w-16 bg-accent/30 md:hidden" />
-            <div className="overflow-hidden rounded-none bg-transparent md:rounded-xl md:bg-white md:shadow-[0_2px_24px_rgba(0,0,0,0.06)]">
+            <div className="overflow-hidden rounded-none bg-transparent md:rounded-xl md:bg-card-bg md:shadow-[0_2px_24px_rgba(0,0,0,0.06)]">
               <div className="flex flex-col items-center gap-4 p-0 sm:gap-8 md:flex-row md:p-12">
                 <LightboxImage
                   src="/images/products/bundle.png"
@@ -316,7 +316,7 @@ export default function Home() {
             <path d="M0,0 C360,56 1080,56 1440,0 L1440,56 L0,56 Z" fill="var(--cream)" />
           </svg>
         </div>
-        <div className="absolute inset-0 bg-[#F5EDE0]/50" />
+        <div className="absolute inset-0" style={{ background: "var(--testimonial-section-tint)" }} />
 
         <div className="relative">
           {/* Header */}
@@ -349,19 +349,24 @@ export default function Home() {
                 text: "Best feature: very secure packaging. No need to worry about the glass being shattered during transport — 3 layers of protection for the glass jar.\n\nHave tried their 3 flavors! I like truffle the most. Hindi tinipid sa truffle. Lasang lasa yung pagka-truffle niya. All their variants are good!! Try it with sourdough 👌\n\nOnly problem: ang bilis maubos 😭",
               },
               {
-                user: "h*****z",
-                date: "Dec 22, 2025",
-                text: "Quality: 15/10\nTaste: Yummy!!!\n\nReally liked this more than the quezo de bola pimiento. Very spreadable too. I feel like if magcrave ka ng truffle pasta, very good substitute to — spread mo lang sa toasted bread and ur good to go. My fam loves it too! Will def order again even after the holidays!!\n\nAlso! I appreciate how well packed my orders were. Dumating sa Ilocos unscathed!! 💯",
-              },
-              {
                 user: "_*****i",
                 date: "Feb 11, 2026",
                 text: "Quality: Very smooth and creamy. Very premium quality of spread.\nTexture: Creamy with a few cheese chunks.\n\nSo yummy! This is my fave cheese spread now. The cheese taste is wonderful, not too strong, and with a hint of truffle? Perfect!",
               },
               {
+                user: "m*****s",
+                date: "Jan 30, 2026",
+                text: "Quality: Very good\nTaste: Delicious\n\nI am not really a fan of cheese. I only eat it when it comes with a burger or in pasta. Decided to give this product a try because I always see videos of this in another app. It did not disappoint! Masarap sya! Not too salty, hindi nakakasawa. Like this with my hot pan de sal. Will surely order again!",
+              },
+              {
                 user: "i*****3",
                 date: "Jan 31, 2026",
                 text: "Quality: The quality feels good and the packaging is very secure.\nTaste: The truffle flavor is rich and very satisfying in every bite!\n\nAng sarap!! Never stop making these please.",
+              },
+              {
+                user: "c*****c",
+                date: "Jan 19, 2026",
+                text: "The perfect post-holiday in a jar treat. Best for cheese lovers or those who want to get a spread that feels much more gourmet. I enjoyed pairing it with butter croissant and hot brewed coffee. Yummy~! Thank you and I will definitely order again! :)",
               },
               {
                 user: "zenralois",
@@ -375,7 +380,7 @@ export default function Home() {
               },
             ].map((review, i) => (
               <ScrollReveal key={i} delay={Math.min(i * 0.08, 0.3)} className="mb-5 inline-block w-full break-inside-avoid">
-                <div className="relative rounded-xl bg-white/75 p-5 shadow-sm backdrop-blur-sm sm:p-6">
+                <div className="relative rounded-xl p-5 shadow-sm backdrop-blur-sm sm:p-6" style={{ background: "var(--testimonial-bg)" }}>
                   {/* Header row */}
                   <div className="mb-3 flex items-center justify-between gap-2">
                     <div className="flex items-center gap-2">
