@@ -491,8 +491,13 @@ export default function Home() {
               alt="Fundy's"
               width={1556}
               height={454}
-              className="mx-auto mb-8 h-auto w-[160px] brightness-0 invert opacity-90 sm:w-[200px]"
+              className="mx-auto h-auto w-[160px] brightness-0 invert opacity-90 sm:w-[200px]"
             />
+            <div className="divider-ornament mt-6 mb-6 text-cream/30">
+              <svg viewBox="0 0 24 24" fill="currentColor" className="h-2 w-2">
+                <circle cx="12" cy="12" r="4" />
+              </svg>
+            </div>
             <h2 className="font-display text-3xl text-cream md:text-4xl">
               Let&apos;s Connect
             </h2>
