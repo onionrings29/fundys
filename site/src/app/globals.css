@@ -50,6 +50,22 @@ body::before {
   background-size: 256px 256px;
 }
 
+/* Hero entrance animation */
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+.hero-item {
+  opacity: 0;
+  animation: heroFadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.hero-item-1 { animation-delay: 0.05s; }
+.hero-item-2 { animation-delay: 0.22s; }
+.hero-item-3 { animation-delay: 0.38s; }
+.hero-item-4 { animation-delay: 0.54s; }
+.hero-item-5 { animation-delay: 0.70s; }
+
 /* Scroll reveal animations */
 @keyframes revealUp {
   from {
