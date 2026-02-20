@@ -265,6 +265,16 @@ export default function Home() {
                     <span className="text-charcoal-light/40">|</span>
                     <span>{product.sold} sold</span>
                   </div>
+
+                  {/* Order button */}
+                  <a
+                    href="https://ph.shp.ee/P4KVv5v"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary mt-5 inline-block w-full text-center text-[13px]"
+                  >
+                    Order on Shopee
+                  </a>
                 </div>
               </ScrollReveal>
             ))}
@@ -292,14 +302,14 @@ export default function Home() {
                     className="h-auto w-[70vw] max-w-[288px] drop-shadow-lg transition-transform duration-300 hover:scale-105"
                   />
                 </LightboxImage>
-                <div className="text-center md:text-left">
+                <div className="text-center">
                   <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-accent">
                     Reseller&apos;s Package
                   </p>
                   <h3 className="mt-2 font-display text-2xl text-charcoal md:text-3xl">
                     Reseller's Package
                   </h3>
-                  <p className="mx-auto mt-3 max-w-sm font-body text-sm leading-relaxed text-charcoal-light md:mx-0">
+                  <p className="mx-auto mt-3 max-w-sm font-body text-sm leading-relaxed text-charcoal-light">
                     24 jars per box — all three flavors available. Ideal for online
                     selling, pasabuy, corporate giveaways, or gifting in bulk.
                   </p>
