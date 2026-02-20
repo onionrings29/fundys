@@ -2,6 +2,7 @@ import Image from "next/image";
 import Header from "@/components/Header";
 import ScrollReveal from "@/components/ScrollReveal";
 import LightboxImage from "@/components/Lightbox";
+import ContactForm from "@/components/ContactForm";
 
 const products = [
   {
@@ -465,8 +466,13 @@ export default function Home() {
             </div>
           </ScrollReveal>
 
-          {/* Contact info */}
+          {/* Contact form */}
           <ScrollReveal delay={0.25}>
+            <ContactForm />
+          </ScrollReveal>
+
+          {/* Contact info */}
+          <ScrollReveal delay={0.35}>
             <div className="mt-14 flex flex-col items-center gap-3 text-sm text-cream/50">
               <p>JP Rizal Street, Brgy. Pipisik, Gumaca, Quezon</p>
               <p>0966-693-0825</p>
