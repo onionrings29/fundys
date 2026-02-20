@@ -19,14 +19,28 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --cream: #1C1510;
-    --cream-dark: #251C15;
-    --charcoal: #EAD9C8;
-    --charcoal-light: #B8A898;
-    --card-bg: #2A1F18;
-    --card-bg-tinted: #2F2218;
-    --testimonial-bg: rgba(42,31,24,0.85);
-    --testimonial-section-tint: rgba(30,22,16,0.6);
+    --cream: #111110;
+    --cream-dark: #181614;
+    --charcoal: #EDE8E1;
+    --charcoal-light: #9E9890;
+    --brand-red: #A82424;
+    --brand-red-hover: #BF2E2E;
+    --brand-red-light: #B83030;
+    --card-bg: #1C1A18;
+    --card-bg-tinted: #211F1C;
+    --testimonial-bg: rgba(28,26,24,0.90);
+    --testimonial-section-tint: rgba(17,16,14,0.6);
+  }
+
+  /* Footer sits on a red background — keep cream variables light so text stays visible */
+  footer#contact {
+    --cream: #FAF7F2;
+    --cream-dark: #F0EBE1;
+  }
+
+  /* Header logo: invert to white so anti-alias halo disappears on dark bg */
+  .header-logo {
+    filter: brightness(0) invert(0.92);
   }
 }
 

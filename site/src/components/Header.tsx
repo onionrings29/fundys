@@ -46,7 +46,7 @@ export default function Header() {
             alt="Fundy's"
             width={2630}
             height={1077}
-            className="h-9 w-auto transition-transform duration-300 hover:scale-105 sm:h-10"
+            className="header-logo h-9 w-auto transition-transform duration-300 hover:scale-105 sm:h-10"
             priority
           />
         </a>
