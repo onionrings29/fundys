@@ -14,9 +14,14 @@ const lifestylePhotos = [
 
 const socialPosts = [
   { src: "/images/social/danicekaye.jpg", alt: "Threads post by @danicekaye" },
+  { src: "/images/social/nugsbea.jpg", alt: "Threads post by @nugsbea" },
   { src: "/images/social/hazelnutte.jpg", alt: "Threads post by @hazelnutte" },
+  { src: "/images/social/bbear_sunshine.jpg", alt: "Threads post by @bbear_sunshine" },
   { src: "/images/social/riesbanzil.jpg", alt: "Threads post by @riesbanzil" },
+  { src: "/images/social/tsimis.jpg", alt: "Threads post — di sia tsimis" },
   { src: "/images/social/instagram-story.jpg", alt: "Instagram story — pangatlo ko na tong jar" },
+  { src: "/images/social/ughsam.jpg", alt: "Instagram story by @ughsam" },
+  { src: "/images/social/people.jpg", alt: "Customers enjoying Fundy's at an event" },
 ];
 
 const products = [
@@ -350,8 +355,8 @@ export default function Home() {
       </section>
 
       {/* ==================== LIFESTYLE PHOTOS ==================== */}
-      <section className="bg-cream px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
-        <ScrollReveal className="mb-10 text-center sm:mb-14">
+      <section className="bg-cream px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
+        <ScrollReveal className="mb-8 text-center">
           <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-accent">
             How People Enjoy It
           </p>
@@ -365,45 +370,27 @@ export default function Home() {
           </div>
         </ScrollReveal>
 
-        <div className="mx-auto max-w-5xl">
-          {/* 5-photo grid: 2 col mobile, 3+2 desktop */}
-          <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
-            {lifestylePhotos.slice(0, 3).map((photo, i) => (
-              <ScrollReveal key={i} animation="reveal-scale" delay={i * 0.08}>
-                <LightboxImage src={photo.src} alt={photo.caption} width={600} height={600}>
-                  <div className="group overflow-hidden rounded-xl">
+        <div className="mx-auto max-w-6xl">
+          <div className="grid grid-cols-2 gap-2 sm:grid-cols-5 sm:gap-3">
+            {lifestylePhotos.map((photo, i) => (
+              <ScrollReveal
+                key={i}
+                animation="reveal-scale"
+                delay={i * 0.07}
+                className={i === 4 ? "col-span-2 sm:col-span-1" : ""}
+              >
+                <LightboxImage src={photo.src} alt={photo.caption} width={500} height={500}>
+                  <div className={`group overflow-hidden rounded-xl ${i === 4 ? "mx-auto w-1/2 sm:w-full" : ""}`}>
                     <div className="aspect-square overflow-hidden bg-card-bg-tinted">
                       <Image
                         src={photo.src}
                         alt={photo.caption}
-                        width={600}
-                        height={600}
+                        width={500}
+                        height={500}
                         className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                       />
                     </div>
-                    <p className="mt-2 text-center text-[11px] tracking-wide text-charcoal-light">
-                      {photo.caption}
-                    </p>
-                  </div>
-                </LightboxImage>
-              </ScrollReveal>
-            ))}
-          </div>
-          <div className="mt-3 grid grid-cols-2 gap-3 sm:mt-4 sm:gap-4">
-            {lifestylePhotos.slice(3).map((photo, i) => (
-              <ScrollReveal key={i} animation="reveal-scale" delay={(i + 3) * 0.08}>
-                <LightboxImage src={photo.src} alt={photo.caption} width={600} height={600}>
-                  <div className="group overflow-hidden rounded-xl">
-                    <div className="aspect-square overflow-hidden bg-card-bg-tinted">
-                      <Image
-                        src={photo.src}
-                        alt={photo.caption}
-                        width={600}
-                        height={600}
-                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      />
-                    </div>
-                    <p className="mt-2 text-center text-[11px] tracking-wide text-charcoal-light">
+                    <p className="mt-1.5 text-center text-[10px] tracking-wide text-charcoal-light">
                       {photo.caption}
                     </p>
                   </div>
@@ -415,8 +402,8 @@ export default function Home() {
       </section>
 
       {/* ==================== SOCIAL BUZZ ==================== */}
-      <section className="bg-cream-dark px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
-        <ScrollReveal className="mb-10 text-center sm:mb-14">
+      <section className="bg-cream-dark px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
+        <ScrollReveal className="mb-8 text-center">
           <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-accent">
             Threads &amp; Instagram
           </p>
@@ -430,25 +417,27 @@ export default function Home() {
           </div>
         </ScrollReveal>
 
-        <div className="mx-auto grid max-w-4xl grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
-          {socialPosts.map((post, i) => (
-            <ScrollReveal key={i} animation="reveal-scale" delay={i * 0.1}>
-              <div className="overflow-hidden rounded-2xl shadow-sm">
-                <Image
-                  src={post.src}
-                  alt={post.alt}
-                  width={400}
-                  height={700}
-                  className="h-auto w-full"
-                />
-              </div>
-            </ScrollReveal>
-          ))}
+        <div className="mx-auto max-w-6xl">
+          <div className="grid grid-cols-3 gap-2 sm:grid-cols-5 sm:gap-3">
+            {socialPosts.map((post, i) => (
+              <ScrollReveal key={i} animation="reveal-scale" delay={i * 0.06}>
+                <div className="overflow-hidden rounded-xl shadow-sm">
+                  <Image
+                    src={post.src}
+                    alt={post.alt}
+                    width={400}
+                    height={700}
+                    className="h-auto w-full"
+                  />
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* ==================== TESTIMONIALS ==================== */}
-      <section className="relative overflow-hidden px-4 py-20 sm:px-6 sm:py-28">
+      <section className="relative overflow-hidden px-4 py-12 sm:px-6 sm:py-16">
         {/* Top wave */}
         <div className="pointer-events-none absolute inset-x-0 top-0 overflow-hidden">
           <svg viewBox="0 0 1440 56" className="w-full" preserveAspectRatio="none" aria-hidden="true">
@@ -486,7 +475,7 @@ export default function Home() {
           </ScrollReveal>
 
           {/* Masonry review wall */}
-          <div className="mx-auto mt-10 max-w-5xl sm:mt-12 [columns:1] sm:[columns:2] lg:[columns:3] [column-gap:1.25rem]">
+          <div className="mx-auto mt-8 max-w-7xl sm:mt-10 [columns:1] sm:[columns:2] lg:[columns:3] [column-gap:1.25rem]">
             {[
               {
                 user: "addtocart.z",
@@ -571,7 +560,7 @@ export default function Home() {
       </section>
 
       {/* ==================== OUR STORY ==================== */}
-      <section id="story" className="relative overflow-hidden px-6 py-24 lg:px-8 lg:py-32">
+      <section id="story" className="relative overflow-hidden px-6 py-14 lg:px-8 lg:py-20">
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-cream via-cream-dark to-cream" />
 
         <div className="relative mx-auto grid max-w-5xl items-center gap-12 md:grid-cols-2 md:gap-16">
@@ -634,7 +623,7 @@ export default function Home() {
       </section>
 
       {/* ==================== FOOTER / CONTACT ==================== */}
-      <footer id="contact" className="relative bg-brand-red px-6 py-20 lg:px-8">
+      <footer id="contact" className="relative bg-brand-red px-6 py-14 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
 
           {/* Wordmark logo */}
