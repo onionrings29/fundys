@@ -40,10 +40,15 @@ export default function Header() {
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 lg:px-8">
         {/* Logo */}
-        <a href="#" className="relative z-50 flex items-center gap-3 transition-transform duration-300 hover:scale-105">
-          <span style={{ fontFamily: "var(--font-michegar)" }} className="text-[1.9rem] leading-none text-brand-red sm:text-[2.1rem]">
-            Fundy&apos;s
-          </span>
+        <a href="#" className="relative z-50 flex items-center gap-3">
+          <Image
+            src="/images/logo/Logo.png"
+            alt="Fundy's"
+            width={2630}
+            height={1077}
+            className="header-logo h-9 w-auto transition-transform duration-300 hover:scale-105 sm:h-10"
+            priority
+          />
         </a>
 
         {/* Desktop Nav */}
