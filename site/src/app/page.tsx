@@ -16,6 +16,7 @@ const products = [
     rating: "4.9",
     sold: "2K+",
     ingredients: ["Edam Cheese", "Roasted Pimientos", "Netherlands Import"],
+    isNew: false,
   },
   {
     name: "Truffle de Bola",
@@ -28,6 +29,7 @@ const products = [
     rating: "4.9",
     sold: "1K+",
     ingredients: ["Edam Cheese", "Truffle", "Netherlands Import"],
+    isNew: false,
   },
   {
     name: "Basil Pesto de Bola",
@@ -40,6 +42,7 @@ const products = [
     rating: "4.9",
     sold: "New",
     ingredients: ["Edam Cheese", "Basil Pesto", "Netherlands Import"],
+    isNew: true,
   },
 ];
 
@@ -181,13 +184,22 @@ export default function Home() {
 
         {/* Product grid */}
         <div className="mx-auto max-w-5xl">
-          <div className="grid gap-0 pt-4 md:grid-cols-3 md:gap-6 md:pt-0">
+          <div className="grid gap-0 pt-4 md:grid-cols-3 md:items-stretch md:gap-6 md:pt-0">
             {products.map((product, i) => (
-              <ScrollReveal key={product.name} animation="reveal-scale" delay={i * 0.12}>
+              <ScrollReveal key={product.name} animation="reveal-scale" delay={i * 0.12} className="md:h-full">
                 {i > 0 && (
                   <div className="mx-auto mb-10 h-[1px] w-16 bg-accent/30 md:hidden" />
                 )}
-                <div className="group rounded-none bg-transparent p-0 pb-10 text-center shadow-none md:product-card md:rounded-xl md:bg-card-bg md:p-7 md:pb-8 md:shadow-[0_2px_24px_rgba(0,0,0,0.06)]">
+                <div className="group relative rounded-none bg-transparent p-0 pb-10 text-center shadow-none md:product-card md:flex md:h-full md:flex-col md:rounded-xl md:bg-card-bg md:p-7 md:pb-8 md:shadow-[0_2px_24px_rgba(0,0,0,0.06)]">
+                  {/* NEW badge */}
+                  {product.isNew && (
+                    <div className="absolute top-3 right-3 z-10 hidden md:block">
+                      <span className="rounded-full bg-brand-red px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-widest text-cream">
+                        New
+                      </span>
+                    </div>
+                  )}
+
                   {/* Product image */}
                   <LightboxImage
                     src={product.image}
@@ -232,6 +244,9 @@ export default function Home() {
                       </span>
                     ))}
                   </div>
+
+                  {/* Spacer pushes price to bottom on equal-height cards */}
+                  <div className="hidden md:block md:flex-1" />
 
                   {/* Price & rating */}
                   <div className="mt-5 flex items-center justify-center gap-4">
