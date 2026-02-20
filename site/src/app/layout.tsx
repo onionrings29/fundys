@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
 import { Pacifico, Lora } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
 const pacifico = Pacifico({
   weight: "400",
   variable: "--font-pacifico",
   subsets: ["latin"],
+  display: "swap",
+});
+
+const michegar = localFont({
+  src: "../../public/fonts/Michegar.ttf",
+  variable: "--font-michegar",
   display: "swap",
 });
 
@@ -36,7 +43,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${pacifico.variable} ${lora.variable}`}>
+    <html lang="en" className={`${pacifico.variable} ${lora.variable} ${michegar.variable}`}>
       <body className="antialiased">{children}</body>
     </html>
   );
