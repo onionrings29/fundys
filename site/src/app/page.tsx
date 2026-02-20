@@ -187,9 +187,9 @@ export default function Home() {
                     alt={product.name}
                     width={280}
                     height={280}
-                    className="mx-auto mb-6 flex items-center justify-center sm:mb-8"
+                    className="mx-auto mb-6 block sm:mb-8"
                   >
-                    <div className="aspect-square w-[95%] overflow-hidden rounded-full bg-white shadow-[0_4px_24px_rgba(0,0,0,0.08)] transition-transform duration-500 group-hover:scale-105">
+                    <div className="aspect-square w-full overflow-hidden rounded-xl bg-[#F5EDE0] transition-transform duration-500 group-hover:scale-[1.02]">
                       <Image
                         src={product.image}
                         alt={product.name}
@@ -313,64 +313,107 @@ export default function Home() {
             <path d="M0,0 C360,56 1080,56 1440,0 L1440,56 L0,56 Z" fill="var(--cream)" />
           </svg>
         </div>
-
-        {/* Warm background tint */}
         <div className="absolute inset-0 bg-[#F5EDE0]/50" />
 
         <div className="relative">
+          {/* Header */}
           <ScrollReveal className="text-center">
             <div className="divider-ornament mb-6 text-accent">
               <svg viewBox="0 0 24 24" fill="currentColor" className="h-2.5 w-2.5">
                 <circle cx="12" cy="12" r="4" />
               </svg>
             </div>
-            <div className="flex items-center justify-center gap-1">
+            <h2 className="font-display text-3xl text-brand-red sm:text-4xl">
+              What People Are Saying
+            </h2>
+            <div className="mt-4 flex items-center justify-center gap-1.5">
               {[...Array(5)].map((_, i) => (
-                <svg key={i} viewBox="0 0 20 20" fill="currentColor" className="h-5 w-5 text-amber-500">
+                <svg key={i} viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4 text-amber-500">
                   <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                 </svg>
               ))}
+              <span className="ml-1.5 text-sm font-medium text-charcoal">4.9</span>
+              <span className="text-sm text-charcoal-light">· 680+ ratings on Shopee</span>
             </div>
-            <p className="mt-2 text-sm font-medium text-charcoal">
-              4.9 out of 5
-              <span className="ml-1 font-normal text-charcoal-light">
-                · 680+ ratings on Shopee
-              </span>
-            </p>
           </ScrollReveal>
 
-          <div className="mx-auto mt-10 grid max-w-4xl gap-5 sm:mt-12 sm:grid-cols-3 sm:gap-6">
+          {/* Masonry review wall */}
+          <div className="mx-auto mt-10 max-w-5xl sm:mt-12 [columns:1] sm:[columns:2] lg:[columns:3] [column-gap:1.25rem]">
             {[
               {
-                quote: "Sobrang sarap! Perfect sa crackers and bread. Will definitely order again.",
-                name: "Shopee Buyer",
+                user: "addtocart.z",
+                date: "Jan 21, 2026",
+                text: "Best feature: very secure packaging. No need to worry about the glass being shattered during transport — 3 layers of protection for the glass jar.\n\nHave tried their 3 flavors! I like truffle the most. Hindi tinipid sa truffle. Lasang lasa yung pagka-truffle niya. All their variants are good!! Try it with sourdough 👌\n\nOnly problem: ang bilis maubos 😭",
               },
               {
-                quote: "The truffle flavor is amazing — you can really taste the quality. Great for gifts too!",
-                name: "Shopee Buyer",
+                user: "h*****z",
+                date: "Dec 22, 2025",
+                text: "Quality: 15/10\nTaste: Yummy!!!\n\nReally liked this more than the quezo de bola pimiento. Very spreadable too. I feel like if magcrave ka ng truffle pasta, very good substitute to — spread mo lang sa toasted bread and ur good to go. My fam loves it too! Will def order again even after the holidays!!\n\nAlso! I appreciate how well packed my orders were. Dumating sa Ilocos unscathed!! 💯",
               },
               {
-                quote: "Parang Christmas na Christmas yung lasa. My family loved it!",
-                name: "Shopee Buyer",
+                user: "_*****i",
+                date: "Feb 11, 2026",
+                text: "Quality: Very smooth and creamy. Very premium quality of spread.\nTexture: Creamy with a few cheese chunks.\n\nSo yummy! This is my fave cheese spread now. The cheese taste is wonderful, not too strong, and with a hint of truffle? Perfect!",
+              },
+              {
+                user: "i*****3",
+                date: "Jan 31, 2026",
+                text: "Quality: The quality feels good and the packaging is very secure.\nTaste: The truffle flavor is rich and very satisfying in every bite!\n\nAng sarap!! Never stop making these please.",
+              },
+              {
+                user: "zenralois",
+                date: "Feb 9, 2026",
+                text: "Received complete, properly sealed, and taste good! Bought it at a discounted price also. Will buy again other flavor naman ❤️ Thank you Shopee and seller!",
+              },
+              {
+                user: "i*****o",
+                date: "Feb 4, 2026",
+                text: "Absolutely love this truffle cheese spread! Smooth, flavorful, and perfect on bread or crackers. Definitely hitting the spot.",
               },
             ].map((review, i) => (
-              <ScrollReveal key={i} delay={i * 0.1}>
-                <div className="relative rounded-xl bg-white/70 p-6 shadow-sm backdrop-blur-sm">
-                  {/* Decorative quote mark */}
-                  <span className="pointer-events-none absolute -top-3 left-4 font-display text-5xl leading-none text-brand-red/15 select-none">
-                    &ldquo;
-                  </span>
-                  <p className="relative font-body text-sm leading-relaxed text-charcoal-light italic">
-                    &ldquo;{review.quote}&rdquo;
+              <ScrollReveal key={i} delay={Math.min(i * 0.08, 0.3)} className="mb-5 inline-block w-full break-inside-avoid">
+                <div className="relative rounded-xl bg-white/75 p-5 shadow-sm backdrop-blur-sm sm:p-6">
+                  {/* Header row */}
+                  <div className="mb-3 flex items-center justify-between gap-2">
+                    <div className="flex items-center gap-2">
+                      <div className="flex h-7 w-7 items-center justify-center rounded-full bg-accent/20 text-[11px] font-semibold text-accent">
+                        {review.user[0].toUpperCase()}
+                      </div>
+                      <span className="text-[13px] font-medium text-charcoal">{review.user}</span>
+                    </div>
+                    <div className="flex gap-0.5">
+                      {[...Array(5)].map((_, s) => (
+                        <svg key={s} viewBox="0 0 20 20" fill="currentColor" className="h-3 w-3 text-amber-500">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                      ))}
+                    </div>
+                  </div>
+                  {/* Review text */}
+                  <p className="whitespace-pre-line font-body text-sm leading-relaxed text-charcoal-light">
+                    {review.text}
                   </p>
-                  <cite className="mt-4 flex items-center gap-2 not-italic">
-                    <div className="h-[1px] w-4 bg-accent/40" />
-                    <span className="text-xs font-medium text-accent">{review.name}</span>
-                  </cite>
+                  {/* Date */}
+                  <p className="mt-3 text-[11px] text-charcoal-light/50">{review.date} · via Shopee</p>
                 </div>
               </ScrollReveal>
             ))}
           </div>
+
+          {/* CTA to Shopee */}
+          <ScrollReveal className="mt-2 text-center" delay={0.3}>
+            <a
+              href="https://ph.shp.ee/P4KVv5v"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm font-medium text-brand-red transition-colors hover:text-brand-red-hover"
+            >
+              See all 680+ reviews on Shopee
+              <svg viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4">
+                <path fillRule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clipRule="evenodd" />
+              </svg>
+            </a>
+          </ScrollReveal>
         </div>
       </section>
 
