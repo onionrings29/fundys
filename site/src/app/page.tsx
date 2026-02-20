@@ -157,7 +157,7 @@ export default function Home() {
       </section>
 
       {/* ==================== OUR SPREADS ==================== */}
-      <section id="spreads" className="relative px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-32">
+      <section id="spreads" className="relative bg-cream-dark px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-32">
         <ScrollReveal className="mb-10 text-center sm:mb-16">
           <h2 className="font-display text-3xl text-brand-red sm:text-4xl md:text-5xl">
             Our Spreads
