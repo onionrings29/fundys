@@ -74,23 +74,9 @@ export default function Home() {
     <>
       <Header />
 
-      {/* ==================== ANNOUNCEMENT BANNER ==================== */}
-      <div className="fixed top-0 left-0 right-0 z-[60] bg-brand-red text-cream">
-        <div className="mx-auto flex max-w-6xl items-center justify-center gap-3 px-4 py-2.5 text-center text-xs tracking-wide sm:text-sm">
-          <span className="hidden sm:inline">🎉</span>
-          <span>
-            <strong>Feria Laguna 2026</strong> — Visit us at DL Umali Hall, UPLB
-            · Feb 12–14
-          </span>
-          <span className="hidden text-cream/60 sm:inline">|</span>
-          <span className="hidden text-cream/70 sm:inline">
-            5% of sales donated to MASIPAG
-          </span>
-        </div>
-      </div>
 
       {/* ==================== HERO ==================== */}
-      <section className="relative flex min-h-svh flex-col items-center justify-center overflow-hidden px-4 pt-28 pb-12 sm:px-6 sm:pt-32 sm:pb-16">
+      <section className="relative flex min-h-svh flex-col items-center justify-center overflow-hidden px-4 pt-24 pb-12 sm:px-6 sm:pt-28 sm:pb-16">
         {/* Subtle radial glow behind product */}
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
           <div className="h-[500px] w-[500px] rounded-full bg-accent/10 blur-[100px] sm:h-[600px] sm:w-[600px] sm:blur-[120px]" />
