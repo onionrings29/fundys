@@ -32,6 +32,11 @@
     --testimonial-section-tint: rgba(17,16,14,0.6);
   }
 
+  /* Hero wordmark: boost brightness so dark-red text pops on near-black background */
+  .hero-wordmark {
+    filter: brightness(2.2) saturate(0.85);
+  }
+
   /* Footer sits on a red background — keep cream variables light so text stays visible */
   footer#contact {
     --cream: #FAF7F2;

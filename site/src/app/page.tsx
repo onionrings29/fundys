@@ -92,7 +92,7 @@ export default function Home() {
               alt="Fundy's"
               width={1556}
               height={454}
-              className="h-auto w-[240px] sm:w-[300px] md:w-[360px] lg:w-[420px]"
+              className="hero-wordmark h-auto w-[240px] sm:w-[300px] md:w-[360px] lg:w-[420px]"
               priority
             />
           </div>
