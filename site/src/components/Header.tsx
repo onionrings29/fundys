@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 
 const navLinks = [
   { label: "Our Spreads", href: "#spreads" },
@@ -40,15 +39,10 @@ export default function Header() {
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 lg:px-8">
         {/* Logo */}
-        <a href="#" className="relative z-50 flex items-center gap-3">
-          <Image
-            src="/images/logo/Logo.png"
-            alt="Fundy's"
-            width={2630}
-            height={1077}
-            className="header-logo h-9 w-auto transition-transform duration-300 hover:scale-105 sm:h-10"
-            priority
-          />
+        <a href="#" className="relative z-50 flex items-center gap-3 transition-transform duration-300 hover:scale-105">
+          <span className="font-display text-[1.75rem] leading-none text-brand-red sm:text-[2rem]">
+            Fundy&apos;s
+          </span>
         </a>
 
         {/* Desktop Nav */}

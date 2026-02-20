@@ -38,10 +38,6 @@
     --cream-dark: #F0EBE1;
   }
 
-  /* Header logo: boost brightness slightly so the dark-red pill pops on dark bg */
-  .header-logo {
-    filter: brightness(1.35) saturate(1.1);
-  }
 
 }
 
