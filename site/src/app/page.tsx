@@ -79,9 +79,10 @@ export default function Home() {
 
       {/* ==================== HERO ==================== */}
       <section className="relative flex min-h-svh flex-col items-center justify-center overflow-hidden px-4 pt-24 pb-12 sm:px-6 sm:pt-28 sm:pb-16">
-        {/* Radial glow */}
-        <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-          <div className="h-[500px] w-[500px] rounded-full bg-accent/5 blur-[100px] sm:h-[600px] sm:w-[600px] sm:blur-[120px]" />
+        {/* Radial glow blobs */}
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          <div className="absolute -top-1/4 -left-1/4 h-1/2 w-1/2 rounded-full bg-brand-red/8 blur-3xl" />
+          <div className="absolute -bottom-1/4 -right-1/4 h-1/2 w-1/2 rounded-full bg-accent/8 blur-3xl" />
         </div>
 
         <div className="relative z-10 flex flex-col items-center text-center">
