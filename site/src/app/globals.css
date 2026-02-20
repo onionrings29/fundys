@@ -37,10 +37,21 @@
     filter: brightness(2.2) saturate(0.85);
   }
 
-  /* Footer sits on a red background — keep cream variables light so text stays visible */
+  /* Footer: full light-mode variable reset — red background, no dark overrides needed */
   footer#contact {
     --cream: #FAF7F2;
     --cream-dark: #F0EBE1;
+    --brand-red: #8B1A1A;
+    --brand-red-hover: #6B1414;
+    --brand-red-light: #A52828;
+    --accent: #C4A484;
+    --accent-light: #D4B898;
+    --charcoal: #3D3D3D;
+    --charcoal-light: #5A5A5A;
+    --card-bg: #FFFFFF;
+    --card-bg-tinted: #F5EDE0;
+    --testimonial-bg: rgba(255,255,255,0.75);
+    --testimonial-section-tint: rgba(245,237,224,0.5);
   }
 
 
