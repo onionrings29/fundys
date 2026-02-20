@@ -44,8 +44,8 @@ export default function Header() {
           <Image
             src="/images/logo/Logo.png"
             alt="Fundy's"
-            width={2630}
-            height={1077}
+            width={2618}
+            height={1064}
             className="h-9 w-auto transition-transform duration-300 hover:scale-105 sm:h-10"
             priority
           />

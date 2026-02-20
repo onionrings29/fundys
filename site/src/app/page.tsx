@@ -81,7 +81,7 @@ export default function Home() {
       <section className="relative flex min-h-svh flex-col items-center justify-center overflow-hidden px-4 pt-24 pb-12 sm:px-6 sm:pt-28 sm:pb-16">
         {/* Radial glow */}
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-          <div className="h-[500px] w-[500px] rounded-full bg-accent/10 blur-[100px] sm:h-[600px] sm:w-[600px] sm:blur-[120px]" />
+          <div className="h-[500px] w-[500px] rounded-full bg-accent/5 blur-[100px] sm:h-[600px] sm:w-[600px] sm:blur-[120px]" />
         </div>
 
         <div className="relative z-10 flex flex-col items-center text-center">
@@ -427,7 +427,7 @@ export default function Home() {
 
       {/* ==================== OUR STORY ==================== */}
       <section id="story" className="relative overflow-hidden px-6 py-24 lg:px-8 lg:py-32">
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-cream via-cream-dark/40 to-cream" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-cream via-cream-dark to-cream" />
 
         <div className="relative mx-auto grid max-w-5xl items-center gap-12 md:grid-cols-2 md:gap-16">
           <ScrollReveal animation="reveal-left">
