@@ -276,7 +276,7 @@ export default function Home() {
                     Reseller&apos;s Package
                   </p>
                   <h3 className="mt-2 font-display text-2xl text-charcoal md:text-3xl">
-                    Get Both Flavors
+                    Reseller's Package
                   </h3>
                   <p className="mx-auto mt-3 max-w-sm font-body text-sm leading-relaxed text-charcoal-light md:mx-0">
                     24 jars per box — both best-selling flavors. Ideal for online
