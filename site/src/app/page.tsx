@@ -423,28 +423,17 @@ export default function Home() {
         </ScrollReveal>
 
         <div className="mx-auto max-w-5xl">
-          {/* Top row — 5 posts */}
-          <div className="grid grid-cols-3 gap-2 sm:grid-cols-5 sm:gap-3">
-            {socialPosts.slice(0, 5).map((post, i) => (
-              <ScrollReveal key={i} animation="reveal-scale" delay={i * 0.07}>
+          <div className="[columns:2] sm:[columns:3] lg:[columns:5] [column-gap:0.5rem] sm:[column-gap:0.75rem]">
+            {socialPosts.map((post, i) => (
+              <ScrollReveal key={i} animation="reveal-scale" delay={Math.min(i * 0.06, 0.3)} className="mb-2 inline-block w-full break-inside-avoid sm:mb-3">
                 <div className="overflow-hidden rounded-xl shadow-sm">
-                  <div className="aspect-[3/4] overflow-hidden">
-                    <Image src={post.src} alt={post.alt} width={400} height={533}
-                      className="h-full w-full object-cover object-top" />
-                  </div>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-          {/* Bottom row — 4 posts */}
-          <div className="mt-2 grid grid-cols-2 gap-2 sm:mt-3 sm:grid-cols-4 sm:gap-3">
-            {socialPosts.slice(5).map((post, i) => (
-              <ScrollReveal key={i} animation="reveal-scale" delay={(i + 5) * 0.07}>
-                <div className="overflow-hidden rounded-xl shadow-sm">
-                  <div className="aspect-[3/4] overflow-hidden">
-                    <Image src={post.src} alt={post.alt} width={400} height={533}
-                      className="h-full w-full object-cover object-top" />
-                  </div>
+                  <Image
+                    src={post.src}
+                    alt={post.alt}
+                    width={400}
+                    height={600}
+                    className="h-auto w-full"
+                  />
                 </div>
               </ScrollReveal>
             ))}
