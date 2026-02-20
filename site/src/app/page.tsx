@@ -4,6 +4,21 @@ import ScrollReveal from "@/components/ScrollReveal";
 import LightboxImage from "@/components/Lightbox";
 import ContactForm from "@/components/ContactForm";
 
+const lifestylePhotos = [
+  { src: "/images/lifestyle/pandesal-flatlay.jpg", caption: "Morning pandesal & coffee" },
+  { src: "/images/lifestyle/spreading.jpg", caption: "On fresh sourdough" },
+  { src: "/images/lifestyle/restaurant.jpg", caption: "At the table" },
+  { src: "/images/lifestyle/jar-closeup.jpg", caption: "Straight from the jar" },
+  { src: "/images/lifestyle/basil-pesto-bowl.jpg", caption: "Basil Pesto de Bola" },
+];
+
+const socialPosts = [
+  { src: "/images/social/danicekaye.jpg", alt: "Threads post by @danicekaye" },
+  { src: "/images/social/hazelnutte.jpg", alt: "Threads post by @hazelnutte" },
+  { src: "/images/social/riesbanzil.jpg", alt: "Threads post by @riesbanzil" },
+  { src: "/images/social/instagram-story.jpg", alt: "Instagram story — pangatlo ko na tong jar" },
+];
+
 const products = [
   {
     name: "Quezo de Bola Pimiento",
@@ -332,6 +347,104 @@ export default function Home() {
             </div>
           </div>
         </ScrollReveal>
+      </section>
+
+      {/* ==================== LIFESTYLE PHOTOS ==================== */}
+      <section className="bg-cream px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+        <ScrollReveal className="mb-10 text-center sm:mb-14">
+          <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-accent">
+            How People Enjoy It
+          </p>
+          <h2 className="mt-3 font-display text-3xl text-brand-red sm:text-4xl">
+            Perfect Every Time
+          </h2>
+          <div className="divider-ornament mt-4 text-accent">
+            <svg viewBox="0 0 24 24" fill="currentColor" className="h-2.5 w-2.5">
+              <circle cx="12" cy="12" r="4" />
+            </svg>
+          </div>
+        </ScrollReveal>
+
+        <div className="mx-auto max-w-5xl">
+          {/* 5-photo grid: 2 col mobile, 3+2 desktop */}
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
+            {lifestylePhotos.slice(0, 3).map((photo, i) => (
+              <ScrollReveal key={i} animation="reveal-scale" delay={i * 0.08}>
+                <LightboxImage src={photo.src} alt={photo.caption} width={600} height={600}>
+                  <div className="group overflow-hidden rounded-xl">
+                    <div className="aspect-square overflow-hidden bg-card-bg-tinted">
+                      <Image
+                        src={photo.src}
+                        alt={photo.caption}
+                        width={600}
+                        height={600}
+                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                    </div>
+                    <p className="mt-2 text-center text-[11px] tracking-wide text-charcoal-light">
+                      {photo.caption}
+                    </p>
+                  </div>
+                </LightboxImage>
+              </ScrollReveal>
+            ))}
+          </div>
+          <div className="mt-3 grid grid-cols-2 gap-3 sm:mt-4 sm:gap-4">
+            {lifestylePhotos.slice(3).map((photo, i) => (
+              <ScrollReveal key={i} animation="reveal-scale" delay={(i + 3) * 0.08}>
+                <LightboxImage src={photo.src} alt={photo.caption} width={600} height={600}>
+                  <div className="group overflow-hidden rounded-xl">
+                    <div className="aspect-square overflow-hidden bg-card-bg-tinted">
+                      <Image
+                        src={photo.src}
+                        alt={photo.caption}
+                        width={600}
+                        height={600}
+                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                    </div>
+                    <p className="mt-2 text-center text-[11px] tracking-wide text-charcoal-light">
+                      {photo.caption}
+                    </p>
+                  </div>
+                </LightboxImage>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== SOCIAL BUZZ ==================== */}
+      <section className="bg-cream-dark px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+        <ScrollReveal className="mb-10 text-center sm:mb-14">
+          <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-accent">
+            Threads &amp; Instagram
+          </p>
+          <h2 className="mt-3 font-display text-3xl text-brand-red sm:text-4xl">
+            People Are Sharing
+          </h2>
+          <div className="divider-ornament mt-4 text-accent">
+            <svg viewBox="0 0 24 24" fill="currentColor" className="h-2.5 w-2.5">
+              <circle cx="12" cy="12" r="4" />
+            </svg>
+          </div>
+        </ScrollReveal>
+
+        <div className="mx-auto grid max-w-4xl grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
+          {socialPosts.map((post, i) => (
+            <ScrollReveal key={i} animation="reveal-scale" delay={i * 0.1}>
+              <div className="overflow-hidden rounded-2xl shadow-sm">
+                <Image
+                  src={post.src}
+                  alt={post.alt}
+                  width={400}
+                  height={700}
+                  className="h-auto w-full"
+                />
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
       </section>
 
       {/* ==================== TESTIMONIALS ==================== */}
