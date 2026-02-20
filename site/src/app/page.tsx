@@ -189,14 +189,17 @@ export default function Home() {
                     height={280}
                     className="mx-auto mb-6 block sm:mb-8"
                   >
-                    <div className="aspect-square w-full overflow-hidden rounded-xl bg-[#F5EDE0] transition-transform duration-500 group-hover:scale-[1.02]">
-                      <Image
-                        src={product.image}
-                        alt={product.name}
-                        width={280}
-                        height={280}
-                        className="h-full w-full object-cover"
-                      />
+                    {/* Shadow wrapper separate from overflow-hidden to render on all browsers */}
+                    <div className="rounded-xl shadow-[0_6px_28px_rgba(0,0,0,0.10)] transition-transform duration-500 group-hover:scale-[1.02]">
+                      <div className="aspect-square w-full overflow-hidden rounded-xl bg-[#F5EDE0]">
+                        <Image
+                          src={product.image}
+                          alt={product.name}
+                          width={280}
+                          height={280}
+                          className="h-full w-full object-cover"
+                        />
+                      </div>
                     </div>
                   </LightboxImage>
 
