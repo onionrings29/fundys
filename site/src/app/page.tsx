@@ -29,6 +29,18 @@ const products = [
     sold: "1K+",
     ingredients: ["Edam Cheese", "Truffle", "Netherlands Import"],
   },
+  {
+    name: "Basil Pesto de Bola",
+    subtitle: "Gourmet Cheese Spread",
+    description:
+      "Made with aged Quezo de Bola (Edam) from the Netherlands and fresh basil pesto. A savory, herbaceous spread perfect on bread, crackers, or pasta.",
+    image: "/images/products/basil-pesto.png",
+    weight: "200g",
+    price: "₱270",
+    rating: "4.9",
+    sold: "New",
+    ingredients: ["Edam Cheese", "Basil Pesto", "Netherlands Import"],
+  },
 ];
 
 const socials = [
@@ -162,20 +174,20 @@ export default function Home() {
             </svg>
           </div>
           <p className="mx-auto mt-4 max-w-lg font-body text-sm leading-relaxed text-charcoal-light sm:mt-6 sm:text-base">
-            Handcrafted in small batches with imported Edam cheese. Two
+            Handcrafted in small batches with imported Edam cheese. Three
             distinctive flavors, each with its own character.
           </p>
         </ScrollReveal>
 
         {/* Product grid */}
-        <div className="mx-auto max-w-4xl">
-          <div className="grid gap-0 pt-4 md:grid-cols-2 md:gap-12 md:pt-0">
+        <div className="mx-auto max-w-5xl">
+          <div className="grid gap-0 pt-4 md:grid-cols-3 md:gap-6 md:pt-0">
             {products.map((product, i) => (
-              <ScrollReveal key={product.name} animation="reveal-scale" delay={i * 0.15}>
+              <ScrollReveal key={product.name} animation="reveal-scale" delay={i * 0.12}>
                 {i > 0 && (
                   <div className="mx-auto mb-10 h-[1px] w-16 bg-accent/30 md:hidden" />
                 )}
-                <div className="group rounded-none bg-transparent p-0 pb-10 text-center shadow-none md:product-card md:rounded-xl md:bg-card-bg md:p-10 md:pb-10 md:shadow-[0_2px_24px_rgba(0,0,0,0.06)]">
+                <div className="group rounded-none bg-transparent p-0 pb-10 text-center shadow-none md:product-card md:rounded-xl md:bg-card-bg md:p-7 md:pb-8 md:shadow-[0_2px_24px_rgba(0,0,0,0.06)]">
                   {/* Product image */}
                   <LightboxImage
                     src={product.image}
@@ -246,7 +258,7 @@ export default function Home() {
 
         {/* Bundle banner */}
         <ScrollReveal className="mt-6 sm:mt-16 md:mt-20" delay={0.1}>
-          <div className="mx-auto max-w-4xl">
+          <div className="mx-auto max-w-5xl">
             <div className="mx-auto mb-10 h-[1px] w-16 bg-accent/30 md:hidden" />
             <div className="overflow-hidden rounded-none bg-transparent md:rounded-xl md:bg-card-bg md:shadow-[0_2px_24px_rgba(0,0,0,0.06)]">
               <div className="flex flex-col items-center gap-4 p-0 sm:gap-8 md:flex-row md:p-12">
@@ -273,7 +285,7 @@ export default function Home() {
                     Reseller's Package
                   </h3>
                   <p className="mx-auto mt-3 max-w-sm font-body text-sm leading-relaxed text-charcoal-light md:mx-0">
-                    24 jars per box — both best-selling flavors. Ideal for online
+                    24 jars per box — all three flavors available. Ideal for online
                     selling, pasabuy, corporate giveaways, or gifting in bulk.
                   </p>
                   <p className="mt-3 text-lg font-semibold text-brand-red">
