@@ -39,14 +39,22 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 lg:px-8">
-        {/* Logo */}
+        {/* Logo — light/dark variants */}
         <a href="#" className="relative z-50 flex items-center gap-3">
           <Image
             src="/images/logo/Logo.png"
             alt="Fundy's"
             width={2630}
             height={1077}
-            className="header-logo h-9 w-auto transition-transform duration-300 hover:scale-105 sm:h-10"
+            className="h-9 w-auto transition-transform duration-300 hover:scale-105 sm:h-10 dark:hidden"
+            priority
+          />
+          <Image
+            src="/images/logo/Logo-dark.png"
+            alt="Fundy's"
+            width={2630}
+            height={1077}
+            className="h-9 w-auto transition-transform duration-300 hover:scale-105 sm:h-10 hidden dark:block"
             priority
           />
         </a>

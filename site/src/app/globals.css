@@ -23,9 +23,9 @@
     --cream-dark: #181614;
     --charcoal: #EDE8E1;
     --charcoal-light: #9E9890;
-    --brand-red: #BA2C2C;
-    --brand-red-hover: #CC3535;
-    --brand-red-light: #C43232;
+    --brand-red: #D03535;
+    --brand-red-hover: #E04040;
+    --brand-red-light: #D83C3C;
     --card-bg: #1C1A18;
     --card-bg-tinted: #211F1C;
     --testimonial-bg: rgba(28,26,24,0.90);
@@ -38,10 +38,6 @@
     --cream-dark: #F0EBE1;
   }
 
-  /* Header logo: boost brightness so the dark-red pill pops on dark bg */
-  .header-logo {
-    filter: brightness(1.4) saturate(1.1);
-  }
 
 
 }
