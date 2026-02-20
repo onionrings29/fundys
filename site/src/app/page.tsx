@@ -12,26 +12,22 @@ const lifestylePhotos = [
   { src: "/images/lifestyle/basil-pesto-bowl.jpg", caption: "Basil Pesto de Bola" },
 ];
 
-// Desktop: explicit 1-2-3-2-1 column distribution
+// 3-column layout: short sides (landscape Mac screenshots), tall middle (portrait phone shots)
 const socialColumns = [
   [
-    { src: "/images/social/instagram-story.jpg", alt: "Instagram story — pangatlo ko na tong jar" },
+    { src: "/images/social/nugsbea.jpg", alt: "Threads post by @nugsbea" },
+    { src: "/images/social/ughsam.jpg", alt: "Instagram story by @ughsam" },
   ],
   [
     { src: "/images/social/danicekaye.jpg", alt: "Threads post by @danicekaye" },
     { src: "/images/social/hazelnutte.jpg", alt: "Threads post by @hazelnutte" },
+    { src: "/images/social/riesbanzil.jpg", alt: "Threads post by @riesbanzil" },
+    { src: "/images/social/instagram-story.jpg", alt: "Instagram story — pangatlo ko na tong jar" },
+    { src: "/images/social/people.jpg", alt: "Customers enjoying Fundy's at an event" },
   ],
   [
-    { src: "/images/social/nugsbea.jpg", alt: "Threads post by @nugsbea" },
     { src: "/images/social/bbear_sunshine.jpg", alt: "Threads post by @bbear_sunshine" },
     { src: "/images/social/tsimis.jpg", alt: "Threads post — di sia tsimis" },
-  ],
-  [
-    { src: "/images/social/riesbanzil.jpg", alt: "Threads post by @riesbanzil" },
-    { src: "/images/social/ughsam.jpg", alt: "Instagram story by @ughsam" },
-  ],
-  [
-    { src: "/images/social/people.jpg", alt: "Customers enjoying Fundy's at an event" },
   ],
 ];
 
@@ -433,31 +429,31 @@ export default function Home() {
           </div>
         </ScrollReveal>
 
-        <div className="mx-auto max-w-5xl">
-          {/* Desktop: explicit 1-2-3-2-1 column layout */}
-          <div className="hidden lg:grid lg:grid-cols-5 lg:items-start lg:gap-2">
+        <div className="mx-auto max-w-4xl">
+          {/* sm+: 3 explicit flex columns, vertically centred so middle is tallest */}
+          <div className="hidden sm:flex sm:items-center sm:gap-3">
             {socialColumns.map((col, ci) => (
-              <div key={ci} className="flex flex-col gap-2">
-                {col.map((post, pi) => (
-                  <ScrollReveal key={pi} animation="reveal-scale" delay={Math.min(ci * 0.08 + pi * 0.05, 0.4)}>
-                    <div className="overflow-hidden rounded-xl shadow-sm">
-                      <Image
-                        src={post.src}
-                        alt={post.alt}
-                        width={400}
-                        height={600}
-                        className="h-auto w-full"
-                      />
-                    </div>
-                  </ScrollReveal>
-                ))}
-              </div>
+                <div key={ci} className="flex flex-1 flex-col gap-3">
+                  {col.map((post, pi) => (
+                    <ScrollReveal key={pi} animation="reveal-scale" delay={Math.min(ci * 0.1 + pi * 0.07, 0.45)}>
+                      <div className="overflow-hidden rounded-xl shadow-sm">
+                        <Image
+                          src={post.src}
+                          alt={post.alt}
+                          width={400}
+                          height={600}
+                          className="h-auto w-full"
+                        />
+                      </div>
+                    </ScrollReveal>
+                  ))}
+                </div>
             ))}
           </div>
-          {/* Mobile/tablet: CSS masonry columns */}
-          <div className="lg:hidden [columns:2] sm:[columns:3] [column-gap:0.5rem] sm:[column-gap:0.75rem]">
+          {/* Mobile: 2-col CSS masonry */}
+          <div className="sm:hidden [columns:2] [column-gap:0.75rem]">
             {socialColumns.flat().map((post, i) => (
-              <ScrollReveal key={i} animation="reveal-scale" delay={Math.min(i * 0.06, 0.3)} className="mb-2 inline-block w-full break-inside-avoid sm:mb-3">
+              <ScrollReveal key={i} animation="reveal-scale" delay={Math.min(i * 0.06, 0.3)} className="mb-3 inline-block w-full break-inside-avoid">
                 <div className="overflow-hidden rounded-xl shadow-sm">
                   <Image
                     src={post.src}
