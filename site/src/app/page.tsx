@@ -447,36 +447,14 @@ export default function Home() {
         </ScrollReveal>
 
         <div className="mx-auto max-w-6xl">
-          {/* lg+: 5 columns, 1-2-3-2-1 */}
-          <div className="hidden lg:flex lg:items-start lg:gap-2">
-            {socialColumns.map((col, ci) => (
-              <div key={ci} className="flex flex-1 flex-col gap-2">
-                {col.map((post, pi) => (
-                  <ScrollReveal key={pi} animation="reveal-scale" delay={Math.min(ci * 0.1 + pi * 0.07, 0.45)}>
-                    <LightboxImage src={post.src} alt={post.alt} width={post.w} height={post.h}>
-                      <div className="max-h-[391px] overflow-hidden rounded-xl shadow-sm cursor-zoom-in">
-                        <Image
-                          src={post.src}
-                          alt={post.alt}
-                          width={post.w}
-                          height={post.h}
-                          className="h-auto w-full"
-                        />
-                      </div>
-                    </LightboxImage>
-                  </ScrollReveal>
-                ))}
-              </div>
-            ))}
-          </div>
-          {/* Mobile/tablet: 3 explicit cols, tallest in middle */}
-          <div className="lg:hidden flex items-start gap-1.5 sm:gap-2">
+          {/* 3 columns, tallest in middle (all screen sizes) */}
+          <div className="flex items-start gap-1.5 sm:gap-2 lg:gap-3">
             {socialColumnsMobile.map((col, ci) => (
-              <div key={ci} className="flex flex-1 flex-col gap-1.5 sm:gap-2">
+              <div key={ci} className="flex flex-1 flex-col gap-1.5 sm:gap-2 lg:gap-3">
                 {col.map((post, pi) => (
                   <ScrollReveal key={pi} animation="reveal-scale" delay={Math.min(ci * 0.08 + pi * 0.06, 0.4)}>
                     <LightboxImage src={post.src} alt={post.alt} width={post.w} height={post.h}>
-                      <div className="max-h-[253px] sm:max-h-[322px] overflow-hidden rounded-lg sm:rounded-xl shadow-sm cursor-zoom-in">
+                      <div className="max-h-[253px] sm:max-h-[322px] lg:max-h-[400px] overflow-hidden rounded-lg sm:rounded-xl shadow-sm cursor-zoom-in">
                         <Image
                           src={post.src}
                           alt={post.alt}
