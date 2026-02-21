@@ -35,7 +35,7 @@ export default function Header() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
           ? "bg-cream/95 backdrop-blur-md shadow-[0_1px_0_rgba(196,164,132,0.2)]"
-          : "bg-transparent"
+          : "bg-cream"
       }`}
       style={{ paddingTop: 'env(safe-area-inset-top)' }}
     >
