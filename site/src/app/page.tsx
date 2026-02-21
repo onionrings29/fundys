@@ -454,7 +454,7 @@ export default function Home() {
                 {col.map((post, pi) => (
                   <ScrollReveal key={pi} animation="reveal-scale" delay={Math.min(ci * 0.08 + pi * 0.06, 0.4)}>
                     <LightboxImage src={post.src} alt={post.alt} width={post.w} height={post.h}>
-                      <div className="max-h-[253px] sm:max-h-[322px] lg:max-h-[400px] overflow-hidden rounded-lg sm:rounded-xl shadow-sm cursor-zoom-in">
+                      <div className="max-h-[253px] sm:max-h-[322px] lg:max-h-[320px] overflow-hidden rounded-lg sm:rounded-xl shadow-sm cursor-zoom-in">
                         <Image
                           src={post.src}
                           alt={post.alt}
