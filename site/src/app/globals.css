@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+/* Safe area support for Dynamic Island */
+@supports (padding: max(0px)) {
+  header {
+    padding-top: max(env(safe-area-inset-top), 0px);
+  }
+}
+
 :root {
   --cream: #FAF7F2;
   --cream-dark: #F0EBE1;
