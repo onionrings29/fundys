@@ -383,7 +383,7 @@ export default function Home() {
 
         <div className="mx-auto max-w-4xl">
           {/* Top row — 3 photos */}
-          <div className="grid grid-cols-2 gap-2 sm:gap-3 lg:grid-cols-3">
+          <div className="grid grid-cols-3 gap-2 sm:gap-3">
             {lifestylePhotos.slice(0, 3).map((photo, i) => (
               <ScrollReveal key={i} animation="reveal-scale" delay={i * 0.08}>
                 <LightboxImage src={photo.src} alt={photo.caption} width={500} height={500}>
