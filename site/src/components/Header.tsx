@@ -32,14 +32,12 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 pt-[env(safe-area-inset-top)] transition-all duration-500 ${
         scrolled
           ? "bg-cream/95 backdrop-blur-md shadow-[0_1px_0_rgba(196,164,132,0.2)]"
           : "bg-cream"
       }`}
     >
-      {/* Safe area spacer for Dynamic Island */}
-      <div style={{ height: 'env(safe-area-inset-top)' }} />
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 lg:px-8">
         {/* Logo */}
         <a href="#" className="relative z-50 flex items-center gap-3">
@@ -100,7 +98,7 @@ export default function Header() {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 z-40 bg-cream transition-all duration-500 md:hidden ${
+        className={`fixed inset-0 z-40 bg-cream pt-[env(safe-area-inset-top)] transition-all duration-500 md:hidden ${
           menuOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
