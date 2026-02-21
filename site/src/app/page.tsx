@@ -12,46 +12,67 @@ const lifestylePhotos = [
   { src: "/images/lifestyle/basil-pesto-bowl.jpg", caption: "Basil Pesto de Bola" },
 ];
 
-// Mobile/tablet: 3 columns, portrait shots in middle (tallest), landscape on sides
-const socialColumnsMobile = [
-  [
-    { src: "/images/social/nugsbea.jpg", alt: "Threads post by @nugsbea" },
-    { src: "/images/social/ughsam.jpg", alt: "Instagram story by @ughsam" },
-  ],
-  [
-    { src: "/images/social/instagram-story.jpg", alt: "Instagram story — pangatlo ko na tong jar" },
-    { src: "/images/social/danicekaye.jpg", alt: "Threads post by @danicekaye" },
-    { src: "/images/social/hazelnutte.jpg", alt: "Threads post by @hazelnutte" },
-    { src: "/images/social/riesbanzil.jpg", alt: "Threads post by @riesbanzil" },
-    { src: "/images/social/people.jpg", alt: "Customers enjoying Fundy's at an event" },
-  ],
-  [
-    { src: "/images/social/bbear_sunshine.jpg", alt: "Threads post by @bbear_sunshine" },
-    { src: "/images/social/tsimis.jpg", alt: "Threads post — di sia tsimis" },
-  ],
+// All posts with real pixel dimensions for dynamic column assignment
+const socialPosts = [
+  { src: "/images/social/bbear_sunshine.jpg",  alt: "Threads post by @bbear_sunshine",              w: 1380, h: 1770 },
+  { src: "/images/social/danicekaye.jpg",       alt: "Threads post by @danicekaye",                  w: 1179, h: 1362 },
+  { src: "/images/social/hazelnutte.jpg",       alt: "Threads post by @hazelnutte",                  w: 1179, h: 1300 },
+  { src: "/images/social/instagram-story.jpg",  alt: "Instagram story — pangatlo ko na tong jar",    w: 1179, h: 1300 },
+  { src: "/images/social/nugsbea.jpg",          alt: "Threads post by @nugsbea",                     w: 1380, h: 1718 },
+  { src: "/images/social/people.jpg",           alt: "Customers enjoying Fundy's at an event",       w: 1179, h: 1572 },
+  { src: "/images/social/riesbanzil.jpg",       alt: "Threads post by @riesbanzil",                  w: 1179, h: 1568 },
+  { src: "/images/social/tsimis.jpg",           alt: "Threads post — di sia tsimis",                 w: 1378, h: 1822 },
+  { src: "/images/social/ughsam.jpg",           alt: "Instagram story by @ughsam",                   w: 1056, h: 1828 },
 ];
 
-// Desktop: 1-2-3-2-1 across 5 columns, columns vertically centred
+// Returns all k-size combinations of indices 0..n-1
+function combinations(n: number, k: number): number[][] {
+  if (k === 0) return [[]];
+  if (n < k) return [];
+  return [
+    ...combinations(n - 1, k - 1).map(c => [...c, n - 1]),
+    ...combinations(n - 1, k),
+  ];
+}
+
+// Splits posts into 3 columns of equal size:
+//   middle = combo with highest total aspect-ratio sum (tallest column)
+//   left/right = most balanced split of the remainder
+function assignColumns<T extends { w: number; h: number }>(posts: T[], perCol = Math.floor(posts.length / 3)): [T[], T[], T[]] {
+  const sumR = (idx: number[]) => idx.reduce((s, i) => s + posts[i].h / posts[i].w, 0);
+  const allIdx = posts.map((_, i) => i);
+
+  let middle = allIdx.slice(0, perCol);
+  let bestSum = -Infinity;
+  for (const c of combinations(posts.length, perCol)) {
+    const s = sumR(c);
+    if (s > bestSum) { bestSum = s; middle = c; }
+  }
+
+  const rem = allIdx.filter(i => !middle.includes(i));
+  let left = rem.slice(0, perCol);
+  let bestDiff = Infinity;
+  for (const c of combinations(rem.length, perCol)) {
+    const li = c.map(i => rem[i]);
+    const ri = rem.filter((_, i) => !c.includes(i));
+    const diff = Math.abs(sumR(li) - sumR(ri));
+    if (diff < bestDiff) { bestDiff = diff; left = li; }
+  }
+
+  const right = rem.filter(i => !left.includes(i));
+  return [left.map(i => posts[i]), middle.map(i => posts[i]), right.map(i => posts[i])];
+}
+
+// Computed at build time — swap in any 9 images and layout self-adjusts
+const socialColumnsMobile = assignColumns(socialPosts);
+
+// Desktop: 1-2-3-2-1 across 5 columns (design-driven, not height-driven)
 const socialColumns = [
-  [
-    { src: "/images/social/instagram-story.jpg", alt: "Instagram story — pangatlo ko na tong jar" },
-  ],
-  [
-    { src: "/images/social/danicekaye.jpg", alt: "Threads post by @danicekaye" },
-    { src: "/images/social/hazelnutte.jpg", alt: "Threads post by @hazelnutte" },
-  ],
-  [
-    { src: "/images/social/nugsbea.jpg", alt: "Threads post by @nugsbea" },
-    { src: "/images/social/bbear_sunshine.jpg", alt: "Threads post by @bbear_sunshine" },
-    { src: "/images/social/tsimis.jpg", alt: "Threads post — di sia tsimis" },
-  ],
-  [
-    { src: "/images/social/riesbanzil.jpg", alt: "Threads post by @riesbanzil" },
-    { src: "/images/social/ughsam.jpg", alt: "Instagram story by @ughsam" },
-  ],
-  [
-    { src: "/images/social/people.jpg", alt: "Customers enjoying Fundy's at an event" },
-  ],
+  [socialPosts[3]], // instagram-story
+  [socialPosts[1], socialPosts[2]], // danicekaye, hazelnutte
+  [socialPosts[4], socialPosts[0], socialPosts[7]], // nugsbea, bbear, tsimis
+  [socialPosts[6], socialPosts[8]], // riesbanzil, ughsam
+  [socialPosts[5]], // people
 ];
 
 const products = [
@@ -454,7 +475,7 @@ export default function Home() {
 
         <div className="mx-auto max-w-6xl">
           {/* lg+: 5 columns, 1-2-3-2-1, vertically centred */}
-          <div className="hidden lg:flex lg:items-center lg:gap-2">
+          <div className="hidden lg:flex lg:items-start lg:gap-2">
             {socialColumns.map((col, ci) => (
                 <div key={ci} className="flex flex-1 flex-col gap-3">
                   {col.map((post, pi) => (
@@ -474,7 +495,7 @@ export default function Home() {
             ))}
           </div>
           {/* Mobile/tablet: 3 explicit cols, portrait shots in middle (tallest) */}
-          <div className="lg:hidden flex items-center gap-1.5 sm:gap-2">
+          <div className="lg:hidden flex items-start gap-1.5 sm:gap-2">
             {socialColumnsMobile.map((col, ci) => (
               <div key={ci} className="flex flex-1 flex-col gap-1.5 sm:gap-2">
                 {col.map((post, pi) => (
