@@ -33,10 +33,8 @@ export default function Header() {
   return (
     <>
       {/* Solid background bar that extends into safe area */}
-      <div className="fixed top-0 left-0 right-0 z-50 bg-cream" style={{ height: '4rem' }}>
-        {/* Extra div to cover safe area above viewport */}
-        <div className="absolute bottom-full left-0 right-0 bg-cream" style={{ height: 'env(safe-area-inset-top)' }} />
-        <div className="mx-auto flex h-full max-w-6xl items-center justify-between px-6 py-4 lg:px-8">
+      <div className="fixed top-0 left-0 right-0 z-50 bg-cream pt-[env(safe-area-inset-top)]" style={{ minHeight: '4rem' }}>
+        <div className="mx-auto flex min-h-[4rem] max-w-6xl items-center justify-between px-6 py-4 lg:px-8">
         {/* Logo */}
         <a href="#" className="relative z-50 flex items-center gap-3">
           <Image
