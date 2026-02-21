@@ -17,7 +17,7 @@ const socialPosts = [
   { src: "/images/social/bbear_sunshine.jpg",  alt: "Threads post by @bbear_sunshine",              w: 1380, h: 1770 },
   { src: "/images/social/danicekaye.jpg",       alt: "Threads post by @danicekaye",                  w: 1179, h: 1362 },
   { src: "/images/social/hazelnutte.jpg",       alt: "Threads post by @hazelnutte",                  w: 1179, h: 1300 },
-  { src: "/images/social/instagram-story.jpg",  alt: "Instagram story — pangatlo ko na tong jar",    w: 1179, h: 1300 },
+  { src: "/images/social/instagram-story.jpg",  alt: "Instagram story — pangatlo ko na tong jar",    w: 1179, h: 1150 },
   { src: "/images/social/nugsbea.jpg",          alt: "Threads post by @nugsbea",                     w: 1380, h: 1718 },
   { src: "/images/social/people.jpg",           alt: "Customers enjoying Fundy's at an event",       w: 1179, h: 1572 },
   { src: "/images/social/riesbanzil.jpg",       alt: "Threads post by @riesbanzil",                  w: 1179, h: 1568 },
@@ -137,7 +137,7 @@ export default function Home() {
       <Header />
 
       {/* ==================== HERO ==================== */}
-      <section className="relative flex min-h-svh flex-col items-center justify-center overflow-hidden px-4 pt-20 pb-12 sm:px-6 sm:pt-24 sm:pb-16">
+      <section className="relative flex min-h-svh flex-col items-center justify-start sm:justify-center overflow-hidden px-4 pt-[72px] pb-12 sm:px-6 sm:pt-24 sm:pb-16">
 <div className="relative z-10 flex flex-col items-center text-center">
           {/* Brand wordmark */}
           <div className="hero-item hero-item-1">
@@ -447,41 +447,45 @@ export default function Home() {
         </ScrollReveal>
 
         <div className="mx-auto max-w-6xl">
-          {/* lg+: 5 columns, 1-2-3-2-1, vertically centred */}
+          {/* lg+: 5 columns, 1-2-3-2-1 */}
           <div className="hidden lg:flex lg:items-start lg:gap-2">
             {socialColumns.map((col, ci) => (
-                <div key={ci} className="flex flex-1 flex-col gap-3">
-                  {col.map((post, pi) => (
-                    <ScrollReveal key={pi} animation="reveal-scale" delay={Math.min(ci * 0.1 + pi * 0.07, 0.45)}>
-                      <div className="overflow-hidden rounded-xl shadow-sm">
+              <div key={ci} className="flex flex-1 flex-col gap-2">
+                {col.map((post, pi) => (
+                  <ScrollReveal key={pi} animation="reveal-scale" delay={Math.min(ci * 0.1 + pi * 0.07, 0.45)}>
+                    <LightboxImage src={post.src} alt={post.alt} width={post.w} height={post.h}>
+                      <div className="max-h-[340px] overflow-hidden rounded-xl shadow-sm cursor-zoom-in">
                         <Image
                           src={post.src}
                           alt={post.alt}
-                          width={400}
-                          height={600}
+                          width={post.w}
+                          height={post.h}
                           className="h-auto w-full"
                         />
                       </div>
-                    </ScrollReveal>
-                  ))}
-                </div>
+                    </LightboxImage>
+                  </ScrollReveal>
+                ))}
+              </div>
             ))}
           </div>
-          {/* Mobile/tablet: 3 explicit cols, portrait shots in middle (tallest) */}
+          {/* Mobile/tablet: 3 explicit cols, tallest in middle */}
           <div className="lg:hidden flex items-start gap-1.5 sm:gap-2">
             {socialColumnsMobile.map((col, ci) => (
               <div key={ci} className="flex flex-1 flex-col gap-1.5 sm:gap-2">
                 {col.map((post, pi) => (
                   <ScrollReveal key={pi} animation="reveal-scale" delay={Math.min(ci * 0.08 + pi * 0.06, 0.4)}>
-                    <div className="overflow-hidden rounded-lg shadow-sm sm:rounded-xl">
-                      <Image
-                        src={post.src}
-                        alt={post.alt}
-                        width={post.w}
-                        height={post.h}
-                        className="h-auto w-full"
-                      />
-                    </div>
+                    <LightboxImage src={post.src} alt={post.alt} width={post.w} height={post.h}>
+                      <div className="max-h-[220px] sm:max-h-[280px] overflow-hidden rounded-lg sm:rounded-xl shadow-sm cursor-zoom-in">
+                        <Image
+                          src={post.src}
+                          alt={post.alt}
+                          width={post.w}
+                          height={post.h}
+                          className="h-auto w-full"
+                        />
+                      </div>
+                    </LightboxImage>
                   </ScrollReveal>
                 ))}
               </div>
