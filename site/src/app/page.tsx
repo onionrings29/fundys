@@ -12,6 +12,25 @@ const lifestylePhotos = [
   { src: "/images/lifestyle/basil-pesto-bowl.jpg", caption: "Basil Pesto de Bola" },
 ];
 
+// Mobile/tablet: 3 columns, portrait shots in middle (tallest), landscape on sides
+const socialColumnsMobile = [
+  [
+    { src: "/images/social/nugsbea.jpg", alt: "Threads post by @nugsbea" },
+    { src: "/images/social/ughsam.jpg", alt: "Instagram story by @ughsam" },
+  ],
+  [
+    { src: "/images/social/instagram-story.jpg", alt: "Instagram story — pangatlo ko na tong jar" },
+    { src: "/images/social/danicekaye.jpg", alt: "Threads post by @danicekaye" },
+    { src: "/images/social/hazelnutte.jpg", alt: "Threads post by @hazelnutte" },
+    { src: "/images/social/riesbanzil.jpg", alt: "Threads post by @riesbanzil" },
+    { src: "/images/social/people.jpg", alt: "Customers enjoying Fundy's at an event" },
+  ],
+  [
+    { src: "/images/social/bbear_sunshine.jpg", alt: "Threads post by @bbear_sunshine" },
+    { src: "/images/social/tsimis.jpg", alt: "Threads post — di sia tsimis" },
+  ],
+];
+
 // Desktop: 1-2-3-2-1 across 5 columns, columns vertically centred
 const socialColumns = [
   [
@@ -124,7 +143,7 @@ export default function Home() {
       <Header />
 
       {/* ==================== HERO ==================== */}
-      <section className="relative flex min-h-svh flex-col items-center justify-center overflow-hidden px-4 pt-24 pb-12 sm:px-6 sm:pt-28 sm:pb-16">
+      <section className="relative flex min-h-svh flex-col items-center justify-center overflow-hidden px-4 pt-20 pb-12 sm:px-6 sm:pt-24 sm:pb-16">
 <div className="relative z-10 flex flex-col items-center text-center">
           {/* Brand wordmark */}
           <div className="hero-item hero-item-1">
@@ -454,20 +473,24 @@ export default function Home() {
                 </div>
             ))}
           </div>
-          {/* Mobile/tablet: 2-col CSS masonry */}
-          <div className="lg:hidden [columns:2] sm:[columns:3] [column-gap:0.75rem]">
-            {socialColumns.flat().map((post, i) => (
-              <ScrollReveal key={i} animation="reveal-scale" delay={Math.min(i * 0.06, 0.3)} className="mb-3 inline-block w-full break-inside-avoid">
-                <div className="overflow-hidden rounded-xl shadow-sm">
-                  <Image
-                    src={post.src}
-                    alt={post.alt}
-                    width={400}
-                    height={600}
-                    className="h-auto w-full"
-                  />
-                </div>
-              </ScrollReveal>
+          {/* Mobile/tablet: 3 explicit cols, portrait shots in middle (tallest) */}
+          <div className="lg:hidden flex items-center gap-1.5 sm:gap-2">
+            {socialColumnsMobile.map((col, ci) => (
+              <div key={ci} className="flex flex-1 flex-col gap-1.5 sm:gap-2">
+                {col.map((post, pi) => (
+                  <ScrollReveal key={pi} animation="reveal-scale" delay={Math.min(ci * 0.08 + pi * 0.06, 0.4)}>
+                    <div className="overflow-hidden rounded-lg shadow-sm sm:rounded-xl">
+                      <Image
+                        src={post.src}
+                        alt={post.alt}
+                        width={400}
+                        height={600}
+                        className="h-auto w-full"
+                      />
+                    </div>
+                  </ScrollReveal>
+                ))}
+              </div>
             ))}
           </div>
         </div>
