@@ -137,7 +137,7 @@ export default function Home() {
       <Header />
 
       {/* ==================== HERO ==================== */}
-      <section className="relative flex min-h-svh flex-col items-center justify-start sm:justify-center overflow-hidden px-4 pt-[72px] pb-12 sm:px-6 sm:pt-24 sm:pb-16">
+      <section className="relative flex min-h-svh flex-col items-center justify-start sm:justify-center overflow-hidden px-4 pb-12 sm:px-6 sm:pb-16" style={{ paddingTop: 'max(env(safe-area-inset-top), 72px)' }}>
 <div className="relative z-10 flex flex-col items-center text-center">
           {/* Brand wordmark */}
           <div className="hero-item hero-item-1">
