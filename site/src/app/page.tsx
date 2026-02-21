@@ -400,8 +400,8 @@ export default function Home() {
             {lifestylePhotos.slice(0, 3).map((photo, i) => (
               <ScrollReveal key={i} animation="reveal-scale" delay={i * 0.08}>
                 <LightboxImage src={photo.src} alt={photo.caption} width={500} height={500}>
-                  <div className="group overflow-hidden rounded-xl">
-                    <div className="aspect-square overflow-hidden bg-card-bg-tinted">
+                  <div className="group">
+                    <div className="aspect-square overflow-hidden rounded-xl bg-card-bg-tinted">
                       <Image src={photo.src} alt={photo.caption} width={500} height={500}
                         className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
                     </div>
@@ -416,8 +416,8 @@ export default function Home() {
             {lifestylePhotos.slice(3).map((photo, i) => (
               <ScrollReveal key={i} animation="reveal-scale" delay={(i + 3) * 0.08}>
                 <LightboxImage src={photo.src} alt={photo.caption} width={500} height={500}>
-                  <div className="group overflow-hidden rounded-xl">
-                    <div className="aspect-square overflow-hidden bg-card-bg-tinted">
+                  <div className="group">
+                    <div className="aspect-square overflow-hidden rounded-xl bg-card-bg-tinted">
                       <Image src={photo.src} alt={photo.caption} width={500} height={500}
                         className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
                     </div>
