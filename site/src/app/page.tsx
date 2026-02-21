@@ -454,7 +454,7 @@ export default function Home() {
                 {col.map((post, pi) => (
                   <ScrollReveal key={pi} animation="reveal-scale" delay={Math.min(ci * 0.1 + pi * 0.07, 0.45)}>
                     <LightboxImage src={post.src} alt={post.alt} width={post.w} height={post.h}>
-                      <div className="max-h-[340px] overflow-hidden rounded-xl shadow-sm cursor-zoom-in">
+                      <div className="max-h-[391px] overflow-hidden rounded-xl shadow-sm cursor-zoom-in">
                         <Image
                           src={post.src}
                           alt={post.alt}
@@ -476,7 +476,7 @@ export default function Home() {
                 {col.map((post, pi) => (
                   <ScrollReveal key={pi} animation="reveal-scale" delay={Math.min(ci * 0.08 + pi * 0.06, 0.4)}>
                     <LightboxImage src={post.src} alt={post.alt} width={post.w} height={post.h}>
-                      <div className="max-h-[220px] sm:max-h-[280px] overflow-hidden rounded-lg sm:rounded-xl shadow-sm cursor-zoom-in">
+                      <div className="max-h-[253px] sm:max-h-[322px] overflow-hidden rounded-lg sm:rounded-xl shadow-sm cursor-zoom-in">
                         <Image
                           src={post.src}
                           alt={post.alt}
