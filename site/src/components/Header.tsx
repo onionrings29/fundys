@@ -31,14 +31,10 @@ export default function Header() {
   }, [menuOpen]);
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 pt-[env(safe-area-inset-top)] transition-all duration-500 ${
-        scrolled
-          ? "bg-cream/95 backdrop-blur-md shadow-[0_1px_0_rgba(196,164,132,0.2)]"
-          : "bg-cream"
-      }`}
-    >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 lg:px-8">
+    <>
+      {/* Solid background bar that extends into safe area */}
+      <div className="fixed top-0 left-0 right-0 z-50 bg-cream" style={{ paddingTop: 'env(safe-area-inset-top)' }}>
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 lg:px-8">
         {/* Logo */}
         <a href="#" className="relative z-50 flex items-center gap-3">
           <Image
@@ -95,14 +91,16 @@ export default function Header() {
           />
         </button>
       </div>
+      </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Overlay - starts below header bar */}
       <div
-        className={`fixed inset-0 z-40 bg-cream pt-[env(safe-area-inset-top)] transition-all duration-500 md:hidden ${
+        className={`fixed left-0 right-0 bottom-0 z-40 bg-cream transition-all duration-500 md:hidden ${
           menuOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
         }`}
+        style={{ top: 'calc(4rem + env(safe-area-inset-top))' }}
       >
         <nav className="flex h-full flex-col items-center justify-center gap-8">
           {navLinks.map((link, i) => (
@@ -136,6 +134,6 @@ export default function Header() {
           </a>
         </nav>
       </div>
-    </header>
+    </>
   );
 }
