@@ -25,46 +25,19 @@ const socialPosts = [
   { src: "/images/social/ughsam.jpg",           alt: "Instagram story by @ughsam",                   w: 1056, h: 1828 },
 ];
 
-// Returns all k-size combinations of indices 0..n-1
-function combinations(n: number, k: number): number[][] {
-  if (k === 0) return [[]];
-  if (n < k) return [];
-  return [
-    ...combinations(n - 1, k - 1).map(c => [...c, n - 1]),
-    ...combinations(n - 1, k),
-  ];
+// Split posts into equal sequential groups, then sort so the tallest group
+// is always rendered in the centre slot. O(n) — no brute-force search.
+function sortColumnsMiddleTallest<T extends { w: number; h: number }>(posts: T[], perCol = 3): T[][] {
+  const sumR = (col: T[]) => col.reduce((s, p) => s + p.h / p.w, 0);
+  const cols: T[][] = [];
+  for (let i = 0; i < posts.length; i += perCol) cols.push(posts.slice(i, i + perCol));
+  cols.sort((a, b) => sumR(a) - sumR(b)); // ascending: [shortest, ..., tallest]
+  // Rearrange so tallest (last) is in the middle slot
+  return [cols[0], cols[cols.length - 1], cols[1]];
 }
 
-// Splits posts into 3 columns of equal size:
-//   middle = combo with highest total aspect-ratio sum (tallest column)
-//   left/right = most balanced split of the remainder
-function assignColumns<T extends { w: number; h: number }>(posts: T[], perCol = Math.floor(posts.length / 3)): [T[], T[], T[]] {
-  const sumR = (idx: number[]) => idx.reduce((s, i) => s + posts[i].h / posts[i].w, 0);
-  const allIdx = posts.map((_, i) => i);
-
-  let middle = allIdx.slice(0, perCol);
-  let bestSum = -Infinity;
-  for (const c of combinations(posts.length, perCol)) {
-    const s = sumR(c);
-    if (s > bestSum) { bestSum = s; middle = c; }
-  }
-
-  const rem = allIdx.filter(i => !middle.includes(i));
-  let left = rem.slice(0, perCol);
-  let bestDiff = Infinity;
-  for (const c of combinations(rem.length, perCol)) {
-    const li = c.map(i => rem[i]);
-    const ri = rem.filter((_, i) => !c.includes(i));
-    const diff = Math.abs(sumR(li) - sumR(ri));
-    if (diff < bestDiff) { bestDiff = diff; left = li; }
-  }
-
-  const right = rem.filter(i => !left.includes(i));
-  return [left.map(i => posts[i]), middle.map(i => posts[i]), right.map(i => posts[i])];
-}
-
-// Computed at build time — swap in any 9 images and layout self-adjusts
-const socialColumnsMobile = assignColumns(socialPosts);
+// Computed at build time — reorder socialPosts and this self-adjusts
+const socialColumnsMobile = sortColumnsMiddleTallest(socialPosts);
 
 // Desktop: 1-2-3-2-1 across 5 columns (design-driven, not height-driven)
 const socialColumns = [
@@ -504,8 +477,8 @@ export default function Home() {
                       <Image
                         src={post.src}
                         alt={post.alt}
-                        width={400}
-                        height={600}
+                        width={post.w}
+                        height={post.h}
                         className="h-auto w-full"
                       />
                     </div>
